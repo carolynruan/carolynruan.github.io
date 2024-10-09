@@ -1,0 +1,34 @@
+a {
+  color: #abbb70;
+}
+.header {
+  padding-top: 40px;
+  text-align: left;
+  font-size: 18px;
+}
+nav a, footer div a {
+  margin: 0px 7px;
+}
+body {
+  font-family: Palatino, Palatino Linotype,
+    Palatino LT STD, Book Antiqua, Georgia, serif;
+  margin: auto;
+  padding: 18px;
+  max-width: 600px;
+  font-size: 17px;
+  text-align: left;
+  background-color: white;
+  position: relative;
+}
+.center {
+  text-align: center;
+}
+.padding-top {
+  padding-top: 25px;
+}
+.padding-bottom {
+  padding-bottom: 25px;
+}
+img, video {
+  max-width: 600px;
+}
