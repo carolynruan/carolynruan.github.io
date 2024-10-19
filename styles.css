@@ -1,10 +1,13 @@
 a {
-  color: #abbb70;
+  color: #6c7a3a;
 }
 .header {
   padding-top: 40px;
   text-align: left;
-  font-size: 18px;
+  font-size: 17px;
+}
+h1 {
+  font-size: 34px;
 }
 nav a, footer div a {
   margin: 0px 7px;
@@ -17,7 +20,7 @@ body {
   max-width: 600px;
   font-size: 17px;
   text-align: left;
-  background-color: white;
+  background-color: ivory;
   position: relative;
 }
 .center {

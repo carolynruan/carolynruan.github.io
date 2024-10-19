@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Carolyn Ruan | Shades of White</title>
+    <meta charset="utf-8" />
+    <meta
+      name="description"
+      content="A generator of the perfect shade of white that complements your color."
+    />
+    <meta
+      name="keywords"
+      content="programming, projects, color theory,"
+    />
+    <meta name="author" content="Carolyn Ruan" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../styles.css"
+    />
+  </head>
+  <div class="header">
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="../../photography/gallery.html"
+        >Photography</a
+      >
+      <a href="../../projects.html">Projects</a>
+    </nav>
+  </div>
+
+  <body>
+    <div class="intro-container">
+      <h1>Shades of White</h1>
+      <p>Find the shade of white that most complements your color!</p>
+    </div>
+
+    <div class="color-finder"></div>
+
+    <script
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel" src="ColorFinder.js"></script>
+
+    <script type="text/babel">
+      ReactDOM.render(
+        <ColorFinder />,
+        document.querySelector(".color-finder")
+      );
+    </script>
+
+    <!--
+    <form>
+        <p>Input your color in hex, rgb, or hsv:</p>
+      <div id='get-hex'>
+        <label for="hex-input">Hex code:</label>
+        <input type="text" id="hex-input" name="hex-input" size="7" value="#">
+      </div>
+      <div id="submit-container" class="padding-top">
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+
+    <h1><span id="myText"></span></h1>
+  </body>
+
+  <script>
+    function best_white(hex_code) {
+      var number = "123";
+      document.getElementById("myText").innerHTML = number;
+    }
+  </script>
+
+  <div id='get-rgb' class='padding-top'>
+        <label for="r-input">R:</label>
+        <input type="text" id="r-input" size="2">
+        <label for="g-input">G:</label>
+        <input type="text" id="g-input" size="2">
+        <label for="b-input">B:</label>
+        <input type="text" id="b-input" size="2">
+      </div>
+      <div id='get-hsv' class='padding-top'>
+        <label for="h-input">H:</label>
+        <input type="text" id="h-input" size="2">
+        <label for="s-input">S:</label>
+        <input type="text" id="s-input" size="2">
+        <label for="v-input">V:</label>
+        <input type="text" id="v-input" size="2">
+      </div>
+  --></body>
+</html>
