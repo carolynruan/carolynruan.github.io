@@ -1,101 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Carolyn Ruan | Shades of White</title>
-    <meta charset="utf-8" />
-    <meta
-      name="description"
-      content="A generator of the perfect shade of white that complements your color."
-    />
-    <meta
-      name="keywords"
-      content="programming, projects, color theory,"
-    />
-    <meta name="author" content="Carolyn Ruan" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="../../styles.css"
-    />
-  </head>
-  <div class="header">
-    <nav>
-      <a href="../../index.html">Home</a>
-      <a href="../../photography/gallery.html"
-        >Photography</a
-      >
-      <a href="../../projects.html">Projects</a>
-    </nav>
+
+<head>
+  <title>Carolyn Ruan | Shades of White</title>
+  <meta charset="utf-8" />
+  <meta name="description" content="A generator of the shade of white that most complements inputted color." />
+  <meta name="keywords" content="programming, projects, color theory," />
+  <meta name="author" content="Carolyn Ruan" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="../../styles.css" />
+</head>
+<div class="header">
+  <nav>
+    <a href="../../index.html">Home</a>
+    <a href="../../photography/gallery.html">Photography</a>
+    <a href="../../projects.html">Projects</a>
+  </nav>
+</div>
+
+<body>
+  <div class="intro-container">
+    <h1>Shades of White</h1>
+    <p>Find the shade of white that most complements your color!</p>
   </div>
 
-  <body>
-    <div class="intro-container">
-      <h1>Shades of White</h1>
-      <p>Find the shade of white that most complements your color!</p>
+  <div id='get-rgb' class='padding-top'>
+    <label for="r-input">R:</label>
+    <input type="text" placeholder="255" id="r-input" size="2">
+    <label for="g-input">G:</label>
+    <input type="text" placeholder="255" id="g-input" size="2">
+    <label for="b-input">B:</label>
+    <input type="text" placeholder="255" id="b-input" size="2">
+  </div>
+  <div id='submit-rgb' class='padding-top-half'>
+    <button onclick="getRGB()">Submit</button>
+  </div>
+  <div id="rgb-result" class='padding-top-half'>
+    <div id="wrapper">
+      <div class="block block_50x100" id="color_input" style="background-color:white;">
+        <p id="p_input" style="color:red; text-align:center"></p>
+      </div>
+      <div class="block block_50x50" id="color_scaled" style="background-color:white;">
+        <p id="p_scaled" style="color:red; text-align:center"></p>
+      </div>
+      <div class="block block_50x50" id="color_comp" style="background-color:white;">
+        <p id="p_comp" style="color:red; text-align:center"></p>
+      </div>
     </div>
-
-    <div class="color-finder"></div>
-
-    <script
-      src="https://unpkg.com/react@16/umd/react.production.min.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
-      crossorigin
-    ></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <script type="text/babel" src="ColorFinder.js"></script>
-
-    <script type="text/babel">
-      ReactDOM.render(
-        <ColorFinder />,
-        document.querySelector(".color-finder")
-      );
-    </script>
-
-    <!--
-    <form>
-        <p>Input your color in hex, rgb, or hsv:</p>
-      <div id='get-hex'>
-        <label for="hex-input">Hex code:</label>
-        <input type="text" id="hex-input" name="hex-input" size="7" value="#">
-      </div>
-      <div id="submit-container" class="padding-top">
-        <input type="submit" value="Submit">
-      </div>
-    </form>
-
-    <h1><span id="myText"></span></h1>
-  </body>
+  </div>
 
   <script>
-    function best_white(hex_code) {
-      var number = "123";
-      document.getElementById("myText").innerHTML = number;
+    let rgb_max = 255
+
+    function getRGB() {
+      //Consider a color white if r, g, b > 220
+      let white_bound = 235
+
+      let red = document.getElementById("r-input").value;
+      let green = document.getElementById("g-input").value;
+      let blue = document.getElementById("b-input").value;
+
+      //Check if input is empty, not a number, not an integer, or not in range
+      if (isNotValidCode(red)) {
+        alert("Please provide a value for red.");
+        return false;
+      }
+      else if (isNotValidCode(green)) {
+        alert("Please provide a value for green.");
+        return false;
+      }
+      else if (isNotValidCode(blue)) {
+        alert("Please provide a value for blue.");
+        return false;
+      }
+
+      //Calculate rgb values for scaled white color
+      let scaled_red = getScaledCode(red, white_bound);
+      let scaled_green = getScaledCode(green, white_bound);
+      let scaled_blue = getScaledCode(blue, white_bound);
+
+      //Calculate rgb values for complementary white color
+      let comp_red = getScaledCode(rgb_max - red, white_bound);
+      let comp_green = getScaledCode(rgb_max - green, white_bound);
+      let comp_blue = getScaledCode(rgb_max - blue, white_bound);
+
+      //Box of inputted color
+      let rgb_input = "(" + red + ", " + green + ", " + blue + ")";
+      document.getElementById('p_input').innerText = rgb_input;
+      document.getElementById("color_input").setAttribute("style", "background-color:rgb" + rgb_input + "; border:1px solid black; border-right-width:0px");
+
+      //Box of scaled white color
+      let rgb_scaled = "(" + scaled_red + ", " + scaled_green + ", " + scaled_blue + ")";
+      document.getElementById('p_scaled').innerText = rgb_scaled;
+      document.getElementById("color_scaled").setAttribute("style", "background-color:rgb" + rgb_scaled + "; border:1px solid black; border-bottom-width:0px");
+      
+      //Box of complementary white color
+      let rgb_comp = "(" + comp_red + ", " + comp_green + ", " + comp_blue + ")";
+      document.getElementById('p_comp').innerText = rgb_comp;
+      document.getElementById("color_comp").setAttribute("style", "background-color:rgb" + rgb_comp + "; border:1px solid black;");
+    }
+
+    function isNotValidCode (code) {
+      return code == "" || isNaN(code) || !Number.isInteger(Number(code)) || code < 0 || code > rgb_max;
+    }
+
+    function getScaledCode (code, low_bound) {
+      let scaled = (Number(code) * (rgb_max - low_bound) / rgb_max) + low_bound;
+      return Math.round(scaled);
     }
   </script>
+</body>
 
-  <div id='get-rgb' class='padding-top'>
-        <label for="r-input">R:</label>
-        <input type="text" id="r-input" size="2">
-        <label for="g-input">G:</label>
-        <input type="text" id="g-input" size="2">
-        <label for="b-input">B:</label>
-        <input type="text" id="b-input" size="2">
-      </div>
-      <div id='get-hsv' class='padding-top'>
-        <label for="h-input">H:</label>
-        <input type="text" id="h-input" size="2">
-        <label for="s-input">S:</label>
-        <input type="text" id="s-input" size="2">
-        <label for="v-input">V:</label>
-        <input type="text" id="v-input" size="2">
-      </div>
-  --></body>
 </html>

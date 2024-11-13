@@ -29,9 +29,34 @@ body {
 .padding-top {
   padding-top: 25px;
 }
+.padding-top-half {
+  padding-top: 12.5px;
+}
 .padding-bottom {
   padding-bottom: 25px;
 }
 img, video {
   max-width: 600px;
+}
+#wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+.block {
+  display: block;
+  overflow: hidden;
+}
+.block_50x100 {
+  width: 49.5%;
+  height: 300px;
+  float: left;
+  display: table-cell;
+  vertical-align: middle;
+}
+.block_50x50 {
+  width: 49.5%;
+  height: 149.5px;
+  float: left;
+  display: table-cell;
+  vertical-align: middle;
 }
