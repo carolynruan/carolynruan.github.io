@@ -51,45 +51,7 @@
   </div>
 
   <script>
-    let rgb_max = 255
-    //Source: htmlcolorcodes.com
-    let whites = [
-      [255, 255, 255, "White"],
-      [255, 250, 250, "Snow"],
-      [240, 255, 240, "Honey Dew"],
-      [245, 255, 250, "Mint Cream"],
-      [240, 255, 255, "Azure"],
-      [240, 248, 255, "Alice Blue"],
-      [248, 248, 255, "Ghost White"],
-      [245, 245, 245, "White Smoke"],
-      [255, 245, 238, "Sea Shell"],
-      [248, 248, 255, "Ghost White"],
-      [245, 245, 220, "Beige"],
-      [253, 245, 230, "Old Lace"],
-      [255, 250, 240, "Floral White"],
-      [255, 255, 240, "Ivory"],
-      [250, 235, 215, "Antique White"],
-      [250, 240, 230, "Linen"],
-      [255, 240, 245, "Lavender Blush"],
-      [255, 228, 225, "Misty Rose"]
-    ];
-
-    const square = (num) => num * num;
-
-    //Find closest named color from array of HTML-recognized shades of white using Least Square Regression
-    function getClosestColor(r, g, b) {
-      let closestInd = 0;
-      let leastSqr = Number.MAX_SAFE_INTEGER;
-      for (let i = 0; i < whites.length; i++) {
-        let sqr = square(r - whites[i][0]) + square(g - whites[i][1]) + square(b - whites[i][2]);
-        if (sqr < leastSqr) {
-          leastSqr = sqr;
-          closestInd = i;
-        }
-      }
-
-      return closestInd;
-    }
+    let rgb_max = 255;
 
     function getRGB() {
       //Consider a color white if r, g, b > white_bound = 220
