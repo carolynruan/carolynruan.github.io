@@ -52,6 +52,7 @@ img, video {
   float: left;
   display: table-cell;
   vertical-align: middle;
+  background-color:white;
 }
 .block_50x50 {
   width: 49.5%;
@@ -59,4 +60,8 @@ img, video {
   float: left;
   display: table-cell;
   vertical-align: middle;
+  background-color:white;
+}
+.p-label {
+  text-align:center;
 }
