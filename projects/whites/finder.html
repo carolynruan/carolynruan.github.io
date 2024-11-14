@@ -42,20 +42,58 @@
         <p id="p_input" style="color:red; text-align:center"></p>
       </div>
       <div class="block block_50x50" id="color_scaled" style="background-color:white;">
-        <p id="p_scaled" style="color:red; text-align:center"></p>
+        <p id="p_scaled" style="color:black; text-align:center"></p>
       </div>
       <div class="block block_50x50" id="color_comp" style="background-color:white;">
-        <p id="p_comp" style="color:red; text-align:center"></p>
+        <p id="p_comp" style="color:black; text-align:center"></p>
       </div>
     </div>
   </div>
 
   <script>
     let rgb_max = 255
+    //Source: htmlcolorcodes.com
+    let whites = [
+      [255, 255, 255, "White"],
+      [255, 250, 250, "Snow"],
+      [240, 255, 240, "Honey Dew"],
+      [245, 255, 250, "Mint Cream"],
+      [240, 255, 255, "Azure"],
+      [240, 248, 255, "Alice Blue"],
+      [248, 248, 255, "Ghost White"],
+      [245, 245, 245, "White Smoke"],
+      [255, 245, 238, "Sea Shell"],
+      [248, 248, 255, "Ghost White"],
+      [245, 245, 220, "Beige"],
+      [253, 245, 230, "Old Lace"],
+      [255, 250, 240, "Floral White"],
+      [255, 255, 240, "Ivory"],
+      [250, 235, 215, "Antique White"],
+      [250, 240, 230, "Linen"],
+      [255, 240, 245, "Lavender Blush"],
+      [255, 228, 225, "Misty Rose"]
+    ];
+
+    const square = (num) => num * num;
+
+    //Find closest named color from array of HTML-recognized shades of white using Least Square Regression
+    function getClosestColor(r, g, b) {
+      let closestInd = 0;
+      let leastSqr = Number.MAX_SAFE_INTEGER;
+      for (let i = 0; i < whites.length; i++) {
+        let sqr = square(r - whites[i][0]) + square(g - whites[i][1]) + square(b - whites[i][2]);
+        if (sqr < leastSqr) {
+          leastSqr = sqr;
+          closestInd = i;
+        }
+      }
+
+      return closestInd;
+    }
 
     function getRGB() {
-      //Consider a color white if r, g, b > 220
-      let white_bound = 235
+      //Consider a color white if r, g, b > white_bound = 220
+      let white_bound = 220
 
       let red = document.getElementById("r-input").value;
       let green = document.getElementById("g-input").value;
@@ -79,33 +117,69 @@
       let scaled_red = getScaledCode(red, white_bound);
       let scaled_green = getScaledCode(green, white_bound);
       let scaled_blue = getScaledCode(blue, white_bound);
+      let scaled_ind = getClosestColor(scaled_red, scaled_green, scaled_blue);
 
       //Calculate rgb values for complementary white color
       let comp_red = getScaledCode(rgb_max - red, white_bound);
       let comp_green = getScaledCode(rgb_max - green, white_bound);
       let comp_blue = getScaledCode(rgb_max - blue, white_bound);
+      let comp_ind = getClosestColor(comp_red, comp_green, comp_blue);
+
+      //Set black/white color for text in inputted color box
+      if (useWhiteText(red, green, blue)) 
+        document.getElementById('p_input').setAttribute("style", "color:black; text-align:center");
+      else 
+        document.getElementById('p_input').setAttribute("style", "color:white; text-align:center");
+      
 
       //Box of inputted color
       let rgb_input = "(" + red + ", " + green + ", " + blue + ")";
-      document.getElementById('p_input').innerText = rgb_input;
+      document.getElementById('p_input').innerText = "Your color:\n" + rgb_input;
       document.getElementById("color_input").setAttribute("style", "background-color:rgb" + rgb_input + "; border:1px solid black; border-right-width:0px");
 
       //Box of scaled white color
-      let rgb_scaled = "(" + scaled_red + ", " + scaled_green + ", " + scaled_blue + ")";
-      document.getElementById('p_scaled').innerText = rgb_scaled;
+      let rgb_scaled = "(" + whites[scaled_ind][0] + ", " + whites[scaled_ind][1] + ", " + whites[scaled_ind][2] + ")";
+      document.getElementById('p_scaled').innerText = whites[scaled_ind][3] + "\n" + rgb_scaled;
       document.getElementById("color_scaled").setAttribute("style", "background-color:rgb" + rgb_scaled + "; border:1px solid black; border-bottom-width:0px");
-      
+
       //Box of complementary white color
-      let rgb_comp = "(" + comp_red + ", " + comp_green + ", " + comp_blue + ")";
-      document.getElementById('p_comp').innerText = rgb_comp;
+      let rgb_comp = "(" + whites[comp_ind][0] + ", " + whites[comp_ind][1] + ", " + whites[comp_ind][2] + ")";
+      document.getElementById('p_comp').innerText = whites[comp_ind][3] + "\n" + rgb_comp;
       document.getElementById("color_comp").setAttribute("style", "background-color:rgb" + rgb_comp + "; border:1px solid black;");
     }
 
-    function isNotValidCode (code) {
+    //From dev.to/alvaromontoro/building-your-own-color-contrast-checker-4j7o
+    //Calculate if using white text has enough contrast with inputted color
+    //Based off WCAG AAA small text requirement of a 1/7 contrast ratio
+    function useWhiteText(r, g, b) {
+      const lum_white = getLuminance(255, 255, 255);
+      const lum_color = getLuminance(r, g, b);
+
+      const ratio = lum_white > lum_color
+        ? ((lum_color + 0.05) / (lum_white + 0.05))
+        : ((lum_white + 0.05) / (lum_color + 0.05));
+
+      return ratio > 1/7;
+    }
+
+    //Calculate luminance value from rgb values
+    function getLuminance(r, g, b) {
+      var a = [r, g, b].map(function (v) {
+        v /= 255;
+        return v <= 0.03928
+          ? v / 12.92
+          : Math.pow((v + 0.055) / 1.055, 2.4);
+      });
+      return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+    }
+
+    //Check if empty, not a number, not an integer, or < 0 or > 255
+    function isNotValidCode(code) {
       return code == "" || isNaN(code) || !Number.isInteger(Number(code)) || code < 0 || code > rgb_max;
     }
 
-    function getScaledCode (code, low_bound) {
+    //Scale color to white color by a low_bound
+    function getScaledCode(code, low_bound) {
       let scaled = (Number(code) * (rgb_max - low_bound) / rgb_max) + low_bound;
       return Math.round(scaled);
     }
