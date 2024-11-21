@@ -8,24 +8,25 @@ a:focus,
 a:hover {
   color: #58A231;
 }
+nav a {
+  margin: 0px 7px;
+}
 .header {
   padding-top: 40px;
   text-align: left;
-  font-size: 17px;
+  font-size: 14px;
 }
-h1 {
-  font-size: 34px;
-}
-nav a, footer div a {
-  margin: 0px 7px;
+name {
+  font-size: 32px;
 }
 body {
   font-family: Palatino, Palatino Linotype,
     Palatino LT STD, Book Antiqua, Georgia, serif;
   margin: auto;
   padding: 18px;
-  max-width: 650px;
-  font-size: 17px;
+  width: 100%;
+  max-width: 700px;
+  font-size: 14px;
   text-align: left;
   position: relative;
 }
@@ -33,16 +34,16 @@ body {
   text-align: center;
 }
 .padding-top {
-  padding-top: 25px;
+  padding-top: 28px;
 }
 .padding-top-half {
   padding-top: 12.5px;
 }
 .padding-bottom {
-  padding-bottom: 25px;
+  padding-bottom: 28px;
 }
 img, video {
-  max-width: 650px;
+  max-width: 700px;
 }
 #wrapper {
   width: 100%;
