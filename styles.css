@@ -2,7 +2,11 @@ html {
   background-color: white
 }
 a {
-  color: #588157;
+  color: #446544;
+}
+a:focus,
+a:hover {
+  color: #58A231;
 }
 .header {
   padding-top: 40px;
