@@ -24,7 +24,7 @@ body {
     Palatino LT STD, Book Antiqua, Georgia, serif;
   margin: auto;
   padding: 18px;
-  max-width: 600px;
+  max-width: 650px;
   font-size: 17px;
   text-align: left;
   position: relative;
@@ -42,31 +42,25 @@ body {
   padding-bottom: 25px;
 }
 img, video {
-  max-width: 600px;
+  max-width: 650px;
 }
 #wrapper {
   width: 100%;
   overflow: hidden;
 }
-.block {
+.block_50x100, .block_50x50 {
+  width: 49.5%;
   display: block;
   overflow: hidden;
+  float: left;
+  display: table-cell;
+  background-color:white;
 }
 .block_50x100 {
-  width: 49.5%;
   height: 300px;
-  float: left;
-  display: table-cell;
-  vertical-align: middle;
-  background-color:white;
 }
 .block_50x50 {
-  width: 49.5%;
   height: 149.5px;
-  float: left;
-  display: table-cell;
-  vertical-align: middle;
-  background-color:white;
 }
 .p-label {
   text-align:center;
