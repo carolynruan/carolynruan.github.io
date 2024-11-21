@@ -1,5 +1,8 @@
+html {
+  background-color: white
+}
 a {
-  color: #6c7a3a;
+  color: #588157;
 }
 .header {
   padding-top: 40px;
@@ -20,7 +23,6 @@ body {
   max-width: 600px;
   font-size: 17px;
   text-align: left;
-  background-color: ivory;
   position: relative;
 }
 .center {
