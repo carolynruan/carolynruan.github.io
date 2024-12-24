@@ -1,68 +1,47 @@
-html {
-  background-color: white
+@font-face {
+  font-family: "Playfair Display";
+  src: url("fonts/PlayfairDisplay/PlayfairDisplay-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
-a {
-  color: #446544;
+@font-face {
+  font-family: "Lora";
+  src: url("fonts/Lora/Lora-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
-a:focus,
-a:hover {
-  color: #58A231;
-}
-nav a {
-  margin: 0px 7px;
+body {
+  scroll-behavior: smooth;
+  font-family: "Lora", sans-serif;
+  font-size: 15px;
+  margin: auto;
+  padding: 18px;
+  width: 100%;
+  max-width: 850px;
 }
 .header {
+  font-family: "Lora", serif;
   padding-top: 40px;
   text-align: left;
   font-size: 14px;
 }
-name {
-  font-size: 32px;
+nav a {
+  font-family: "Playfair Display", serif;
+  color: black;
+  text-decoration: none;
+  margin: 0px 7px;
 }
-body {
-  font-family: Palatino, Palatino Linotype,
-    Palatino LT STD, Book Antiqua, Georgia, serif;
-  margin: auto;
-  padding: 18px;
-  width: 100%;
-  max-width: 700px;
-  font-size: 14px;
-  text-align: left;
-  position: relative;
+a {
+  color: #395c38;
+  text-decoration: none;
 }
-.center {
-  text-align: center;
+a:hover {
+  color: #008FE8;
 }
-.padding-top {
-  padding-top: 28px;
-}
-.padding-top-half {
-  padding-top: 12.5px;
-}
-.padding-bottom {
-  padding-bottom: 28px;
-}
-img, video {
-  max-width: 700px;
-}
-#wrapper {
-  width: 100%;
-  overflow: hidden;
-}
-.block_50x100, .block_50x50 {
-  width: 49.5%;
-  display: block;
-  overflow: hidden;
-  float: left;
-  display: table-cell;
-  background-color:white;
-}
-.block_50x100 {
-  height: 300px;
-}
-.block_50x50 {
-  height: 149.5px;
-}
-.p-label {
-  text-align:center;
+/* Restore bullet points for unordered lists */
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
 }

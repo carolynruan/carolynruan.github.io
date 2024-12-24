@@ -8,54 +8,89 @@
     <meta name="author" content="Carolyn Ruan">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!--Import bulma.css-->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'>
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
     <link rel="shortcut icon" href="images/icon.png" />
 </head>
 
-<div class="header">
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="photography/gallery.html">Photography</a>
-        <a href="projects.html">Projects</a>
-    </nav>
+<div class="navigation">
+    <section class="hero is-large is-flex is-align-items-center">
+        <div class="header is-size-5 has-text-weight-semibold has-text-centered">
+            <nav>
+                <a href="#">Home</a>
+                <a href="photography.html">Photography</a>
+                <a href="projects.html">Projects</a>
+            </nav>
+        </div>
+    </section>
 </div>
 
-<body>
-    <table
-        style="width:100%; max-width:700px; border:0px; border-spacing:0px; border-collapse:separate; margin-right:auto; margin-left:auto;"
-        class='padding-top'>
-        <tbody>
-            <tr style="padding:0px">
-                <td style="width:60%; vertical-align:middle">
-                    <p style="text-align:center">
-                        <name>Carolyn Ruan</name>
-                    </p>
-                    <p>I am a first-year computer science student at Caltech, originally from Cupertino, California.</p>
-                    <p>I'm also a 2024 US Presidential Scholar Candidate and play basketball for the Caltech Women's
-                        Basketball team
-                        (NCAA DIII). In my free time, I love hiking, reading, and <a
-                            href="photography/gallery.html">photography</a>.
-                    </p>
-                    <p>I love math! I attended the Hampshire College Summer Studies in Mathematics <a
-                            href="https://hcssim.org/">(HCSSiM)</a> 2023.</p>
-                    <p>This site is built with HTML, JS, and CSS.</p>
-                </td>
-                <td style="padding:2.5%; width:40%; max-width:40%; text-align:right; vertical-align: bottom;">
-                    <a href="images/CarolynRuan.jpg"><img style="width:100%;max-width:100%" alt="profile photo"
-                            src="images/CarolynRuan.jpg" class="hoverZoomLink"></a>
-                </td>
-            </tr>
-    </table>
+<p class="p-5"></p>
 
-</body>
+<div class="about">
+    <div class="columns is-variable is-4">
+        <div class="column is-two-thirds">
+            <p class="is-size-1 has-text-weight-light has-text-centered"
+                style="font-family: 'Playfair Display', serif;">Carolyn Ruan</p>
+            <p class="p-2"></p>
 
-<footer class='padding-top'>
-    <p style="text-align:center">
-        <a style="text-decoration:none" href="mailto:carolyn.ruan3@gmail.com">carolyn.ruan3@gmail.com</a> &nbsp/&nbsp
-        <a style="text-decoration:none" href="https://linkedin.com/in/carolyn-ruan/">LinkedIn</a> &nbsp/&nbsp
-        <a style="text-decoration:none" href="https://github.com/carolynruan/">Github</a> &nbsp/&nbsp
-        <a style="text-decoration:none" href="https://instagram.com/c.hl.r" target="_blank" rel="noopener">Instagram</a>
-    </p>
-</footer>
+            <p>I am a first-year student at Caltech studying Computer Science and minoring in Mathematics.</p>
+            <p class="p-1"></p>
 
-</html>
+            <p>I'm also:</p>
+            <ul>
+                <li>a 2024 US Presidential Scholar Candidate</li>
+                <li>on the Caltech Women's Basketball team (NCAA DIII)</li>
+                <li>a <a href="https://hcssim.org/" style="text-decoration: underline">HCSSiM</a> (Hampshire College Summer Studies in Mathematics) alum</li>
+            </ul>
+        </div>
+        <div class="column is-flex is-align-items-center">
+            <img style="width:100%; max-width:100%; border: 7px solid #f2c9d4" alt="Profile pic" src="images/CarolynRuan.jpg" class="hoverZoomLink">
+        </div>
+    </div>
+</div>
+
+<p class="p-5"></p>
+
+<div class="connect">
+    <div class="columns is-variable is-4">
+        <div class="column is-one-fifth">
+            <p class="is-size-5 has-text-weight-light has-text-centered"
+                style="font-family: 'Playfair Display', serif;">Find me at:</p>
+        </div>
+        <div class="column">
+            <div class="buttons">
+                <a class="button is-link is-dark" style="background-color: #B2B5DF; color: white" href="mailto:carolyn.ruan3@gmail.com">carolyn.ruan3@gmail.com</a>
+                <a class="button is-link is-dark" style="background-color:#F2C9D4; color: white" href="https://linkedin.com/in/carolyn-ruan/" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fab fa-linkedin"></i></span>
+                    <span>LinkedIn</span>
+                </a>
+                <a class="button is-link is-dark" style="background-color:#60CDB8; color: white" href="https://github.com/carolynruan/" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>GitHub</span>
+                </a>
+                <a class="button is-link is-dark" style="background-color:#11D0C6; color: white" href="https://instagram.com/c.hl.r" target="_blank" rel="noopener">
+                    <span class="icon"><i class="fab fa-instagram"></i></span>
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p class="p-3"></p>
+
+<div class="photos">
+
+</div>
+
+<p class="p-3"></p>
+
+<div class="projects">
+
+</div>
+
+<p class="p-3"></p>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <title>Carolyn Ruan</title>
+
+  <meta charset="utf-8">
+  <meta name="author" content="Carolyn Ruan">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--Import bulma.css-->
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css'>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+
+  <link rel="shortcut icon" href="images/icon.png" />
+</head>
+
+<div class="navigation">
+  <section class="hero is-large is-flex is-align-items-center">
+    <div class="header is-size-5 has-text-weight-semibold has-text-centered">
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Photography</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+    </div>
+  </section>
+</div>
+
+<p class="p-4"></p>
+
+<script>
+  const image_array = [
+    'Colorado.jpg',
+    'Flowers.jpg',
+    'Gaotie.jpg',
+    'Half_Dome.jpg',
+    'Huashan.jpg',
+    'Maybe_Timmy.jpg',
+    'Railroad.jpg',
+    'Redwoods_National_Park.jpg',
+    'Retirement_Home.jpg',
+    'San_Juan.jpg',
+    'Shop.jpg',
+    'Sightseeing.jpg',
+    'Skyline.jpg',
+    'Yosemite_Sunset.jpg',
+    'Yosemite_Valley.jpg'
+  ];
+
+  var clicks = 0;
+  function get_next_image(add) {
+    clicks += add + image_array.length;
+    clicks %= image_array.length;
+    const selected_image = image_array[clicks];
+    document.getElementById("next_image").src = `photography/${selected_image}`;
+  }
+</script>
+
+<section class="hero is-large is-flex is-align-items-center">
+  <div class="buttons">
+    <button class='button' onclick='get_next_image(1)'>&lt;</button>
+    <button class='button' onclick='get_next_image(-1)'>></button>
+  </div>
+</section>
+
+<p class="p-2"></p>
+
+<div class="gallery">
+  <section class="hero is-large is-flex is-align-items-center">
+    <body onload="get_next_image(0)">
+      <img id='next_image' alt='image' />
+  </section>
+</div>
+
+<p class="p-5"></p>
+
+<footer class='padding-top'>
+  <p style="text-align:center">
+    <a style="text-decoration:none" href="mailto:carolyn.ruan3@gmail.com">carolyn.ruan3@gmail.com</a> &nbsp/&nbsp
+    <a style="text-decoration:none" href="https://linkedin.com/in/carolyn-ruan/">LinkedIn</a> &nbsp/&nbsp
+    <a style="text-decoration:none" href="https://github.com/carolynruan/">Github</a> &nbsp/&nbsp
+    <a style="text-decoration:none" href="https://instagram.com/c.hl.r" target="_blank" rel="noopener">Instagram</a>
+  </p>
+</footer>
