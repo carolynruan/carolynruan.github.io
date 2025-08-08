@@ -1,44 +1,50 @@
 body {
   font-family: "Inter", sans-serif;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   background-color: #fff;
   color: #111;
   line-height: 1.6;
   max-width: 900px;
-  margin: auto;
 }
 
 header {
-  padding: 40px 20px 10px 20px;
+  padding: 40px 20px 10px;
+  font-size: 100%;
 }
 
-h1 {
+header .h1 {
   font-size: 2.5rem;
+  line-height: 1.2;
   font-weight: 700;
   margin: 0;
 }
 
-.contact {
+header .contact {
+  font-size: 1rem;
   font-weight: 500;
   margin: 5px 0 20px;
   color: #444;
 }
 
-nav a {
-  margin-right: 15px;
-  text-decoration: none;
-  color: #000;
-  font-weight: 500;
+header nav {
+  display: flex;
+  flex-wrap: nowrap;
 }
 
-a:hover {
-  color: gray;
+header nav a {
+  font-size: 0.95rem;
+  margin-right: 12px;
+  font-weight: 500;
+  white-space: nowrap;
 }
 
 a {
   color: #000;
   text-decoration: none;
+}
+a:hover {
+  color: gray;
 }
 
 section {
@@ -66,10 +72,24 @@ h2 {
 
 .project img {
   width: 360px;
-  height: auto;
+  max-width: 50%;
+  max-height: 50%;
+  object-fit: contain;
   border-radius: 8px;
   background: #eee;
-  /* placeholder background */
+}
+
+/* Mobile: stack image and description vertically */
+@media (max-width: 768px) {
+  .project {
+    flex-direction: column;
+    align-items: center;
+  }
+  .project img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .project-details h3 {
@@ -82,9 +102,8 @@ h2 {
 }
 
 .photo-row {
-  margin-bottom: 40px; /* consistent vertical space between rows */
+  margin-bottom: 40px;
 }
-
 .photo-row:last-child {
   margin-bottom: 0;
 }
@@ -92,7 +111,7 @@ h2 {
 .photograph img {
   display: block;
   width: 700px;
-  max-width: 100%; /* Prevent overflow */
+  max-width: 100%;
   margin: 0 auto;
   height: auto;
   background: #eee;
@@ -108,10 +127,10 @@ h2 {
 .side-by-side {
   display: flex;
   justify-content: center;
-  gap: 20px; /* space between two vertical images */
+  gap: 20px;
 }
 
 .side-by-side .photograph img {
   width: 340px;
-  max-width: 100%; /* smaller so both fit nicely */
+  max-width: 100%;
 }
