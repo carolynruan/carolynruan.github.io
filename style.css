@@ -91,7 +91,8 @@ h2 {
 
 .photograph img {
   display: block;
-  max-width: 700px;
+  width: 700px;
+  max-width: 100%; /* Prevent overflow */
   margin: 0 auto;
   height: auto;
   background: #eee;
@@ -111,5 +112,6 @@ h2 {
 }
 
 .side-by-side .photograph img {
-  max-width: 350px; /* smaller so both fit nicely */
+  width: 340px;
+  max-width: 100%; /* smaller so both fit nicely */
 }
