@@ -1,0 +1,73 @@
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #111;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: auto;
+}
+
+header {
+  padding: 40px 20px 10px 20px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.contact {
+  font-weight: 500;
+  margin: 5px 0 20px;
+  color: #444;
+}
+
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+section {
+  padding: 20px;
+  border-top: 1px solid #ccc;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #004aad;
+}
+
+.edu-item,
+.exp-item,
+.award-item {
+  margin-bottom: 15px;
+}
+
+.project {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.project img {
+  width: 360px;
+  height: auto;
+  border-radius: 8px;
+  background: #eee;
+  /* placeholder background */
+}
+
+.project-details h3 {
+  margin: 0 0 5px;
+}
+
+.project-details p {
+  margin: 0;
+  font-size: 0.95rem;
+}

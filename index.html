@@ -2,218 +2,123 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carolyn Ruan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            background: #ffffff;
-            color: #333333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 60px 30px;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #2563eb;
-            margin-bottom: 10px;
-            letter-spacing: -0.02em;
-        }
-
-        h1 a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        h1 a:hover {
-            text-decoration: underline;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #111827;
-            margin-top: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        h3 {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: #374151;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .email {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .email a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        .email a:hover {
-            text-decoration: underline;
-        }
-
-        .links {
-            margin-bottom: 2.5rem;
-        }
-
-        .links a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: 400;
-        }
-
-        .links a:hover {
-            text-decoration: underline;
-        }
-
-        .link-item {
-            display: inline;
-            margin-right: 15px;
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: #4b5563;
-            line-height: 1.7;
-        }
-
-        ul {
-            margin-left: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        li {
-            color: #4b5563;
-            margin-bottom: 0.3rem;
-            line-height: 1.6;
-        }
-
-        a {
-            color: #2563eb;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        strong, b {
-            color: #111827;
-            font-weight: 500;
-        }
-
-        .project-title {
-            color: #111827;
-            font-weight: 500;
-        }
-
-        .project-title a {
-            color: inherit;
-        }
-
-        .coursework {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #6b7280;
-        }
-
-        .degree {
-            color: #111827;
-        }
-
-        .divider {
-            height: 1px;
-            background-color: #e5e7eb;
-            margin: 3rem 0;
-            border: none;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/camera.ico">
 </head>
 
 <body>
-    <h1><a href="https://carolynruan.github.io/">Carolyn Ruan</a></h1>
-    
-    <div class="email">
-        <a href="mailto:cruan@caltech.edu">cruan@caltech.edu</a>
-    </div>
-    
-    <div class="links">
-        <span class="link-item">[ <a href="https://github.com/carolynruan/" target="_blank" rel="noopener noreferrer">github</a> ]</span>
-        <span class="link-item">[ <a href="https://linkedin.com/in/carolynruan/" target="_blank" rel="noopener noreferrer">linkedin</a> ]</span>
-        <span class="link-item">[ <a href="https://medium.com/@carolynruan/" target="_blank" rel="noopener noreferrer">blog</a> ]</span>
-        <span class="link-item">[ <a href="/files/resume.pdf">cv</a> ]</span>
-    </div>
 
-    <hr class="divider">
+    <header>
+        <h1>Carolyn Ruan</h1>
+        <div class="contact">
+            cruan [at] caltech [dot] edu
+        </div>
+        <nav>
+            <a href="https://github.com/carolynruan/" target="_blank" rel="noopener noreferrer">[ github ]</a>
+            <a href="https://linkedin.com/in/carolynruan/" target="_blank" rel="noopener noreferrer">[ linkedin ]</a>
+            <a href="https://medium.com/@carolynruan/" target="_blank" rel="noopener noreferrer">[ blog ]</a>
+            <a href="files/resume.pdf">[ cv ]</a>
+        </nav>
+    </header>
 
-    <h2>About</h2>
-    <p>
-        Hi, I'm Carolyn, an undergrad at Caltech studying Computer Science 
-        and Data Science. I'm interested in ML and software engineering.
-    </p>
-    <p>
-        Currently, I'm working on applying neural networks to chemistry to 
-        predict regioselectivity in the 
-        <a href="http://reismangroup.caltech.edu/">Reisman Lab</a> at Caltech.
-    </p>
+    <section id="about">
+        <h2>About</h2>
+        <p>Hi, I'm Carolyn, an undergrad at Caltech studying Computer Science and Data Science. I'm broadly interested
+            in machine learning, software engineering, and computational modelling.</p>
+        <p>Currently, I'm applying neural networks to chemistry to predict C—H oxidation regioselectivity in the Reisman
+            Lab at Caltech.</p>
+    </section>
 
-    <hr class="divider">
+    <section id="education">
+        <h2>Education</h2>
+        <div class="edu-item">
+            <strong>Caltech</strong>, Pasadena, CA<br>
+            <strong>B.S. Computer Science</strong>, Minor in Data Science (GPA: 4.0)<br>
+            <p>
+                <em>Relevant Coursework:</em> Data Structures, Software Design, Decidability and Tractability, Discrete
+                Math, Linear Algebra, Multivariable Calculus, Computational Science and Engineering, Pedagogy in
+                Computer Science.<br>
+                <em>Activities:</em> NCAA Women’s Basketball, Lloyd House.
+            </p>
+        </div>
+    </section>
 
-    <h2>Education</h2>
-    <h3>Caltech</h3>
-    <p>
-        <span class="degree"><strong>B.S. Major in Computer Science, Minor in Data Science</strong></span><br>
-        <span class="coursework">Relevant Coursework: Data Structures, Software Design, Decidability and Tractability, Discrete Math, Linear Algebra, Multivariable Calculus, Computational Science and Engineering, Pedagogy in Computer Science</span><br>
-    </p>
+    <section id="skills">
+        <h2>Skills</h2>
+        <p><strong>Languages:</strong> Java, Python, C, C++, HTML/CSS, Matlab</p>
+        <p><strong>Frameworks & Tools:</strong> Git, Bash, Conda, React, pandas, NumPy, scikit-learn, Matplotlib</p>
+    </section>
 
-    <hr class="divider">
+    <section id="projects">
+        <h2>Projects</h2>
 
-    <h2>Projects</h2>
-    <h3 class="project-title">Cluck Cluck Chuck</h3>
-    <p>
-        Two-player axe throwing game. Developed own discrete physics engine with multi-object kinematics and collisions.
-    </p>
-    
-    <h3 class="project-title">
-        <a href="https://hackaday.io/project/202243-light-painting-robot/">Light Painting Robot</a>
-    </h3>
-    <p>
-        A 3-DOF robot arm which automates long exposure light painting.
-    </p>
+        <div class="project">
+            <img src="demos/axe_game.gif" alt="Axe-throwing game gif">
+            <div class="project-details">
+                <h3>Axe-throwing Video Game</h3>
+                <p>Two-player axe throwing game with intelligent obstacles. Designed generalized, memory-compliant
+                    C-libraries using AddressSanitizer for vector math, image
+                    rendering, animation, keyboard handler, and music and sound effects handler. </p>
+                <p>Stack: C, Git, Makefile, Emscripten, SDL2</p>
+            </div>
+        </div>
 
-    <hr class="divider">
+        <div class="project">
+            <img src="demos/physics_engine.gif" alt="Physics engine demos gif">
+            <div class="project-details">
+                <h3>Physics Engine</h3>
+                <p>Developed 2D discrete physics engine with support for multi-object kinematics and collision
+                    detection. Implemented demos including Space Invaders, Star, Frogger, and Pacman.</p>
+                <p>Stack: C, Git, Makefile, Emscripten, SDL2</p>
+            </div>
+        </div>
 
-    <h2>Awards</h2>
-    <ul>
-        <li>Research Fellowship, <em>Philip Laipis in Memory of Professor Jerome Vinograd</em></li>
-        <li>US Presidential Scholars, <em>Candidate</em></li>
-        <li>2x AIME Qualifier</li>
-        <li>USACO, <em>Silver</em></li>
-        <li>2x Berkeley Math Tournament, <em>Honorable Mention</em></li>
-        <li>National Merit Scholarship, <em>Finalist</em></li>
-        <li>Presidential Volunteer Service Award, <em>Silver</em></li>
-        <li>UT Austin Turing Scholar</li>
-    </ul>
+        <div class="project">
+            <img src="demos/light_painting_robot.webp" alt="Light-painting robot">
+            <div class="project-details">
+                <h3>Light-Painting Robot Arm</h3>
+                <em>Los Angeles Maker Faire and City of STEM</em>
+                <p>3-DOF robot arm that light paints with LEDs in a vertical 2D plane, using a Raspberry Pi Pico.</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <img src="demos/beavermap.gif" alt="OpenStreetMap demo gif">
+            <div class="project-details">
+                <h3>Path Finder App</h3>
+                <p>Designed an LA-area map app with real-time location search and route visualization. Uses Dijkstra's
+                    Algorithm, heaps, and hashmaps to find shortest paths between buildings.</p>
+                <p>Stack: Java, Git, JavaScript, CSS, HTML, OpenStreetMap</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="exp-item">
+            <strong>Machine Learning Researcher</strong> — Reisman Lab at Caltech<br>
+            Developed model evaluation framework, stopping criterion for Random Forest acquisition functions to predict regioselectivity in C–H oxidation reactions.
+Ideated and implemented RNNs (Long Short-Term Memory, Gated Recurrent Units) for sequential modelling as a stopping property.
+        </div>
+    </section>
+
+    <section id="awards">
+        <h2>Honors & Awards</h2>
+        <ul>
+            <li>SURF Fellow, <em>Philip Laipis in Memory of Professor Jerome Vinograd</em></li>
+            <li>US Presidential Scholars, <em>Candidate</em></li>
+            <li>2x AIME Qualifier</li>
+            <li>USACO Silver</li>
+            <li>2x Berkeley Math Tournament, <em>Honorable Mention</em></li>
+            <li>National Merit Scholarship, <em>Finalist</em></li>
+            <li>Presidential Volunteer Service Award, <em>Silver</em></li>
+        </ul>
+    </section>
+
 </body>
 
 </html>
