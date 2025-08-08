@@ -32,6 +32,15 @@ nav a {
   font-weight: 500;
 }
 
+a:hover {
+  color: gray;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
 section {
   padding: 20px;
   border-top: 1px solid #ccc;
