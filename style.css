@@ -80,3 +80,36 @@ h2 {
   margin: 0;
   font-size: 0.95rem;
 }
+
+.photo-row {
+  margin-bottom: 40px; /* consistent vertical space between rows */
+}
+
+.photo-row:last-child {
+  margin-bottom: 0;
+}
+
+.photograph img {
+  display: block;
+  max-width: 700px;
+  margin: 0 auto;
+  height: auto;
+  background: #eee;
+}
+
+.photograph p {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.side-by-side {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* space between two vertical images */
+}
+
+.side-by-side .photograph img {
+  max-width: 350px; /* smaller so both fit nicely */
+}
