@@ -7,47 +7,32 @@ body {
   line-height: 1.6;
   max-width: 900px;
 }
-
 header {
   padding: 40px 20px 10px;
   font-size: 100%;
 }
-
 header .h1 {
   font-size: 2.5rem;
   line-height: 1.2;
   font-weight: 700;
   margin: 0;
 }
-
 header .contact {
   font-size: 1rem;
   font-weight: 500;
   margin: 5px 0 20px;
   color: #444;
 }
-
 header nav {
   display: flex;
   flex-wrap: nowrap;
 }
-
 header nav a {
   font-size: 0.95rem;
   margin-right: 12px;
   font-weight: 500;
   white-space: nowrap;
 }
-
-.project a {
-  display: block;     /* be a block flex item */
-  flex: 0 0 auto;     /* <-- don't shrink */
-}
-
-.project a img {
-  display: block;     /* no inline gaps */
-}
-
 a {
   color: #000;
   text-decoration: none;
@@ -55,50 +40,50 @@ a {
 a:hover {
   color: gray;
 }
-
 section {
   padding: 20px;
   border-top: 1px solid #ccc;
 }
-
 h2 {
   font-size: 1.4rem;
   margin-bottom: 10px;
   color: #004aad;
 }
-
 .edu-item,
 .exp-item,
 .award-item {
   margin-bottom: 15px;
 }
-
 .project {
   display: flex;
   gap: 15px;
   margin-bottom: 25px;
 }
 
-/* NEW: fix circular shrink issue */
-.project > :is(img, a) {
-  flex: 0 0 auto;   /* don't shrink */
+/* Fix for linked images - ensure both img and a (link) get 360px width */
+.project > img,
+.project > a {
+  flex: 0 0 360px;  /* Fixed width, don't shrink */
   width: 360px;
-  max-width: 50%;   /* limit against the .project width, not the image */
+  max-width: 50%;
 }
 
+/* Ensure image inside link fills the link container */
 .project > a img {
   display: block;
-  width: 100%;
+  width: 100%;      /* Fill the link container */
   height: auto;
-  max-width: none;  /* remove % cap on the img itself */
+  border-radius: 8px;
+  background: #eee;
+  object-fit: contain;
 }
 
-.project img {
+/* For direct images (not in links) */
+.project > img {
   border-radius: 8px;
   background: #eee;
   object-fit: contain;
   height: auto;
-  /* removed max-width: 50% and max-height: 50% to prevent shrink loop */
 }
 
 /* Mobile: stack image and description vertically */
@@ -107,29 +92,30 @@ h2 {
     flex-direction: column;
     align-items: center;
   }
-  .project img {
+  .project > img,
+  .project > a {
     width: 100%;
     max-width: 100%;
-    height: auto;
+    flex: none;
+  }
+  .project > a img {
+    width: 100%;
   }
 }
 
 .project-details h3 {
   margin: 0 0 5px;
 }
-
 .project-details p {
   margin: 0;
   font-size: 0.95rem;
 }
-
 .photo-row {
   margin-bottom: 40px;
 }
 .photo-row:last-child {
   margin-bottom: 0;
 }
-
 .photograph img {
   display: block;
   width: 700px;
@@ -138,20 +124,17 @@ h2 {
   height: auto;
   background: #eee;
 }
-
 .photograph p {
   text-align: center;
   margin-top: 8px;
   font-size: 0.9rem;
   color: #555;
 }
-
 .side-by-side {
   display: flex;
   justify-content: center;
   gap: 20px;
 }
-
 .side-by-side .photograph img {
   width: 340px;
   max-width: 100%;
