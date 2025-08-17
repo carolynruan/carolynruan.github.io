@@ -7,12 +7,12 @@
     <title>Carolyn Ruan</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="images/camera.ico">
+    <link rel="icon" href="files/camera.ico">
 </head>
 
 <body>
     <header>
-        <h1><a href="#">Carolyn Ruan</a></h1>
+        <h1><a href="">Carolyn Ruan</a></h1>
         <div class="contact">
             cruan [at] caltech [dot] edu
         </div>
@@ -20,7 +20,7 @@
             <a href="https://github.com/carolynruan/" target="_blank" rel="noopener noreferrer">[ github ]</a>
             <a href="https://linkedin.com/in/carolynruan/" target="_blank" rel="noopener noreferrer">[ linkedin ]</a>
             <a href="https://medium.com/@carolynruan/" target="_blank" rel="noopener noreferrer">[ blog ]</a>
-            <a href="photography.html">[ photography ]</a>
+            <a href="photography/index.html">[ photography ]</a>
         </nav>
     </header>
 
@@ -28,9 +28,10 @@
         <h2>About</h2>
         <p>Hi, I'm Carolyn, an undergrad at Caltech studying Computer Science and Data Science. I'm broadly interested
             in machine learning, software engineering, and computational modelling.</p>
-        <p>Currently, I'm applying neural networks to chemistry to predict C—H oxidation regioselectivity in the 
-            <a href="http://reismangroup.caltech.edu/" target="_blank" rel="noopener noreferrer">Reisman Lab</a> 
-            at Caltech.</p>
+        <p>Currently, I'm applying neural networks to chemistry to predict C—H oxidation regioselectivity in the
+            <a href="http://reismangroup.caltech.edu/" target="_blank" rel="noopener noreferrer">Reisman Lab</a>
+            at Caltech.
+        </p>
     </section>
 
     <section id="education" href="#education">
@@ -57,6 +58,16 @@
         <h2>Projects</h2>
 
         <div class="project">
+            <img src="demos/wiki_plot.gif" alt="Scrolling through Wikipedia movie pages gif">
+            <div class="project-details">
+                <h3>Wikipedia Movie Scroller</h3>
+                <p>TikTok-style infinite scroll web app that fetches and displays random Wikipedia movie articles
+                    with API integration. Responsive UI with lazy loading and smooth scroll with snap positioning.</p>
+                <p>Stack: React, TypeScript, Vite, Tailwind CSS, Wikipedia API</p>
+            </div>
+        </div>
+
+        <div class="project">
             <img src="demos/axe_game.gif" alt="Axe-throwing game gif">
             <div class="project-details">
                 <h3>Axe-throwing Video Game</h3>
@@ -80,7 +91,8 @@
         <div class="project">
             <img src="demos/light_painting_robot.webp" alt="Light-painting robot">
             <div class="project-details">
-                <h3><a href="https://hackaday.io/project/202243-light-painting-robot/" target="_blank" rel="noopener noreferrer">Light-Painting Robot Arm</a></h3>
+                <h3><a href="https://hackaday.io/project/202243-light-painting-robot/" target="_blank"
+                        rel="noopener noreferrer">Light-Painting Robot Arm</a></h3>
                 <em>Los Angeles Maker Faire and City of STEM</em>
                 <p>3-DOF robot arm that light paints with LEDs in a vertical 2D plane, using a Raspberry Pi Pico.</p>
             </div>
@@ -92,7 +104,7 @@
                 <h3>Path Finder App</h3>
                 <p>Designed an LA-area map app with real-time location search and route visualization. Uses Dijkstra's
                     Algorithm, heaps, and hashmaps to find shortest paths between buildings.</p>
-                <p>Stack: Java, Git, JavaScript, CSS, HTML, OpenStreetMap</p>
+                <p>Stack: Java, Git, JavaScript, HTML, CSS, OpenStreetMap</p>
             </div>
         </div>
     </section>
@@ -101,8 +113,10 @@
         <h2>Experience</h2>
         <div class="exp-item">
             <strong>Machine Learning Researcher</strong> — Reisman Lab at Caltech<br>
-            Developed model evaluation framework, stopping criterion for Random Forest acquisition functions to predict regioselectivity in C–H oxidation reactions.
-Ideated and implemented RNNs (Long Short-Term Memory, Gated Recurrent Units) for sequential modelling as a stopping property.
+            Developed model evaluation framework, stopping criterion for Random Forest acquisition functions to predict
+            regioselectivity in C–H oxidation reactions.
+            Ideated and implemented RNNs (Long Short-Term Memory, Gated Recurrent Units) for sequential modelling as a
+            stopping property.
         </div>
     </section>
 
