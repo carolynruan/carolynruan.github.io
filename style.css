@@ -1,141 +1,550 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+  --bg-main: #F0EDE8;
+  --bg-alt: #CBCBCB;
+  --accent: #6D8196;
+  --accent-deep: #4a4a4a;
+  --text: #000000;
+  --muted: #444444;
+  --window-bg: #CBCBCB;
+  --window-border-light: #ffffff;
+  --window-border-dark: #808080;
+  --btn-face: #CBCBCB;
+  --btn-dark: #808080;
+  --btn-light: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
 body {
-  font-family: "Inter", sans-serif;
-  margin: 0 auto;
-  padding: 0;
-  background-color: #fff;
-  color: #111;
-  line-height: 1.6;
-  max-width: 900px;
-}
-header {
-  padding: 40px 20px 10px;
-  font-size: 100%;
-}
-header .h1 {
-  font-size: 2.5rem;
-  line-height: 1.2;
-  font-weight: 700;
   margin: 0;
+  width: 100%;
+  min-height: 100%;
 }
-header .contact {
-  font-size: 1rem;
-  font-weight: 500;
-  margin: 5px 0 20px;
-  color: #444;
+
+body {
+  font-family: "Space Grotesk", "Arial", sans-serif;
+  color: var(--text);
+  background: #F0EDE8;
+  overflow: hidden;
 }
-header nav {
-  display: flex;
-  flex-wrap: nowrap;
-}
-header nav a {
-  font-size: 0.95rem;
-  margin-right: 12px;
-  font-weight: 500;
-  white-space: nowrap;
-}
+
 a {
-  color: #000;
+  color: var(--accent-deep);
+}
+
+/* ── Desktop shell ───────────────────────────── */
+
+.desktop-shell {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 1.2rem;
+}
+
+.desktop-icons {
+  position: absolute;
+  left: 1.2rem;
+  top: 1.2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(96px, 1fr));
+  gap: 0.55rem;
+  z-index: 4;
+}
+
+.desktop-icon {
+  border-top: 2px solid var(--btn-light);
+  border-left: 2px solid var(--btn-light);
+  border-right: 2px solid var(--btn-dark);
+  border-bottom: 2px solid var(--btn-dark);
+  background: var(--btn-face);
+  color: #000000;
+  width: 104px;
+  min-height: 84px;
   text-decoration: none;
+  padding: 0.45rem 0.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  font-family: "JetBrains Mono", "Courier New", monospace;
+  font-size: 0.74rem;
 }
-a:hover {
-  color: gray;
+
+.desktop-icon:hover {
+  background: #d8d8d8;
 }
-section {
-  padding: 20px;
-  border-top: 1px solid #ccc;
+
+.desktop-icon:active {
+  border-top: 2px solid var(--btn-dark);
+  border-left: 2px solid var(--btn-dark);
+  border-right: 2px solid var(--btn-light);
+  border-bottom: 2px solid var(--btn-light);
 }
-h2 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: #004aad;
+
+.icon-glyph {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 0;
+  background: #6D8196;
+  border: 1px solid #000000;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-family: "JetBrains Mono", monospace;
 }
-.edu-item,
-.exp-item,
-.award-item {
-  margin-bottom: 15px;
+
+.icon-text {
+  font-size: 0.74rem;
+  text-align: center;
+  font-family: "JetBrains Mono", "Courier New", monospace;
 }
+
+/* ── Windows area ────────────────────────────── */
+
+.windows-area {
+  position: absolute;
+  inset: 0;
+  padding: 1.2rem;
+}
+
+.window {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: min(var(--w), calc(100% - 2.4rem));
+  max-height: min(86vh, 920px);
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--window-border-light);
+  border-left: 2px solid var(--window-border-light);
+  border-right: 2px solid var(--window-border-dark);
+  border-bottom: 2px solid var(--window-border-dark);
+  background: var(--window-bg);
+  box-shadow: 4px 4px 0 #000000;
+  min-width: 320px;
+  min-height: 180px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.window.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.window.is-maximized {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
+}
+
+/* ── Title bar ───────────────────────────────── */
+
+.window-bar {
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2px 4px;
+  background: linear-gradient(to right, #6D8196, #6D8196);
+  border-bottom: none;
+  cursor: move;
+  user-select: none;
+}
+
+.window-bar h2 {
+  margin: 0;
+  color: #ffffff;
+  text-transform: none;
+  font-family: "Space Grotesk", "Arial", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.window-actions {
+  display: flex;
+  gap: 2px;
+}
+
+.action-btn {
+  min-width: 16px;
+  height: 14px;
+  border-top: 1px solid var(--btn-light);
+  border-left: 1px solid var(--btn-light);
+  border-right: 1px solid var(--btn-dark);
+  border-bottom: 1px solid var(--btn-dark);
+  background: var(--btn-face);
+  color: #000000;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2px;
+}
+
+.action-btn:active {
+  border-top: 1px solid var(--btn-dark);
+  border-left: 1px solid var(--btn-dark);
+  border-right: 1px solid var(--btn-light);
+  border-bottom: 1px solid var(--btn-light);
+}
+
+.action-close {
+  color: #000000;
+  font-weight: 700;
+}
+
+/* ── Resize handles ──────────────────────────── */
+
+.resize-handle {
+  position: absolute;
+  z-index: 6;
+}
+
+.resize-e,
+.resize-w {
+  top: 10px;
+  bottom: 10px;
+  width: 8px;
+}
+
+.resize-e {
+  right: -4px;
+  cursor: ew-resize;
+}
+
+.resize-w {
+  left: -4px;
+  cursor: ew-resize;
+}
+
+.resize-n,
+.resize-s {
+  left: 10px;
+  right: 10px;
+  height: 8px;
+}
+
+.resize-n {
+  top: -4px;
+  cursor: ns-resize;
+}
+
+.resize-s {
+  bottom: -4px;
+  cursor: ns-resize;
+}
+
+.resize-ne,
+.resize-nw,
+.resize-se,
+.resize-sw {
+  width: 12px;
+  height: 12px;
+}
+
+.resize-ne {
+  top: -5px;
+  right: -5px;
+  cursor: nesw-resize;
+}
+
+.resize-nw {
+  top: -5px;
+  left: -5px;
+  cursor: nwse-resize;
+}
+
+.resize-se {
+  right: -5px;
+  bottom: -5px;
+  cursor: nwse-resize;
+}
+
+.resize-sw {
+  left: -5px;
+  bottom: -5px;
+  cursor: nesw-resize;
+}
+
+.window.is-maximized .resize-handle {
+  display: none;
+}
+
+/* ── Window content ──────────────────────────── */
+
+.window-content {
+  padding: 0.6rem;
+  overflow: auto;
+  line-height: 1.42;
+  font-size: 0.88rem;
+  background: #CBCBCB;
+  border-top: 2px inset #808080;
+}
+
+.window-content h3 {
+  margin: 0 0 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* ── Projects ────────────────────────────────── */
+
 .project {
   display: flex;
-  gap: 15px;
-  margin-bottom: 25px;
+  gap: 0.9rem;
+  align-items: flex-start;
+  margin-bottom: 1.2rem;
+  background: #d8d8d8;
+  border-top: 2px solid var(--btn-light);
+  border-left: 2px solid var(--btn-light);
+  border-right: 2px solid var(--btn-dark);
+  border-bottom: 2px solid var(--btn-dark);
+  padding: 0.6rem;
 }
 
-/* Fix for linked images - ensure both img and a (link) get 360px width */
-.project > img,
+.project img,
 .project > a {
-  flex: 0 0 360px;  /* Fixed width, don't shrink */
-  width: 360px;
-  max-width: 50%;
+  width: min(100%, 240px);
+  flex: 0 0 240px;
 }
 
-/* Ensure image inside link fills the link container */
-.project > a img {
-  display: block;
-  width: 100%;      /* Fill the link container */
-  height: auto;
-  border-radius: 8px;
-  background: #eee;
-  object-fit: contain;
-}
-
-/* For direct images (not in links) */
+.project > a img,
 .project > img {
-  border-radius: 8px;
-  background: #eee;
-  object-fit: contain;
-  height: auto;
+  display: block;
+  border: 2px inset #808080;
+  background: #ffffff;
 }
 
-/* Mobile: stack image and description vertically */
-@media (max-width: 768px) {
+.project-details h4 {
+  margin: 0 0 0.28rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.project-details p {
+  margin: 0 0 0.38rem;
+  font-size: 0.82rem;
+}
+
+/* ── Gallery ─────────────────────────────────── */
+
+.gallery-hint {
+  margin: 0 0 0.7rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+  gap: 0.65rem;
+}
+
+.gallery-item {
+  border-top: 2px solid var(--btn-light);
+  border-left: 2px solid var(--btn-light);
+  border-right: 2px solid var(--btn-dark);
+  border-bottom: 2px solid var(--btn-dark);
+  background: var(--btn-face);
+  padding: 0.36rem;
+  cursor: pointer;
+  text-align: left;
+}
+
+.gallery-item:hover {
+  background: #d0d0d0;
+}
+
+.gallery-item:active {
+  border-top: 2px solid var(--btn-dark);
+  border-left: 2px solid var(--btn-dark);
+  border-right: 2px solid var(--btn-light);
+  border-bottom: 2px solid var(--btn-light);
+}
+
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 106px;
+  object-fit: cover;
+  border: 2px inset #808080;
+}
+
+.gallery-item span {
+  display: block;
+  font-size: 0.77rem;
+  margin-top: 0.34rem;
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* ── Lightbox ────────────────────────────────── */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 999;
+}
+
+.lightbox.is-visible {
+  display: flex;
+}
+
+.lightbox figure {
+  margin: 0;
+  position: relative;
+  max-width: min(1100px, 95vw);
+  background: #CBCBCB;
+  border-top: 2px solid var(--btn-light);
+  border-left: 2px solid var(--btn-light);
+  border-right: 2px solid var(--btn-dark);
+  border-bottom: 2px solid var(--btn-dark);
+  padding: 1.5rem 0.75rem 0.75rem;
+}
+
+.lightbox img {
+  display: block;
+  max-width: 100%;
+  max-height: 84vh;
+  border: 2px inset #808080;
+}
+
+.lightbox figcaption {
+  margin-top: 0.5rem;
+  color: #000000;
+  font-size: 0.85rem;
+  text-align: center;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 16px;
+  height: 14px;
+  border-top: 1px solid var(--btn-light);
+  border-left: 1px solid var(--btn-light);
+  border-right: 1px solid var(--btn-dark);
+  border-bottom: 1px solid var(--btn-dark);
+  background: var(--btn-face);
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.65rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.lightbox-close:active {
+  border-top: 1px solid var(--btn-dark);
+  border-left: 1px solid var(--btn-dark);
+  border-right: 1px solid var(--btn-light);
+  border-bottom: 1px solid var(--btn-light);
+}
+
+/* ── Responsive ──────────────────────────────── */
+
+@media (max-width: 980px) {
+  body {
+    overflow: auto;
+  }
+
+  .desktop-shell {
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .desktop-icons {
+    position: relative;
+    left: auto;
+    top: auto;
+    grid-template-columns: repeat(3, minmax(96px, 1fr));
+    margin-bottom: 0.9rem;
+    width: min(420px, 100%);
+  }
+
+  .desktop-icon {
+    width: auto;
+  }
+
+  .windows-area {
+    position: relative;
+    inset: auto;
+    padding: 0;
+  }
+
+  .window {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+    max-height: none;
+    margin-bottom: 0.8rem;
+    box-shadow: none;
+    transform: none;
+    display: none;
+    pointer-events: auto;
+    opacity: 1;
+  }
+
+  .window.is-open {
+    display: flex;
+  }
+
+  .window.is-maximized {
+    width: 100%;
+    max-height: none;
+  }
+
+  .resize-handle {
+    display: none;
+  }
+
   .project {
     flex-direction: column;
-    align-items: center;
   }
-  .project > img,
+
+  .project img,
   .project > a {
     width: 100%;
-    max-width: 100%;
     flex: none;
-  }
-  .project > a img {
-    width: 100%;
   }
 }
 
-.project-details h3 {
-  margin: 0 0 5px;
-}
-.project-details p {
-  margin: 0;
-  font-size: 0.95rem;
-}
-.photo-row {
-  margin-bottom: 40px;
-}
-.photo-row:last-child {
-  margin-bottom: 0;
-}
-.photograph img {
-  display: block;
-  width: 700px;
-  max-width: 100%;
-  margin: 0 auto;
-  height: auto;
-  background: #eee;
-}
-.photograph p {
-  text-align: center;
-  margin-top: 8px;
-  font-size: 0.9rem;
-  color: #555;
-}
-.side-by-side {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-.side-by-side .photograph img {
-  width: 340px;
-  max-width: 100%;
+@media (max-width: 680px) {
+  .desktop-icons {
+    grid-template-columns: repeat(2, minmax(96px, 1fr));
+  }
 }
