@@ -1,0 +1,53 @@
+.gitignore
+  s_e8e2b780741339::t_6235c062cc7855 18-20
+  s_e8e2b780741339::t_98bab5d268219c 1-4,12-14
+assets/css/site.css
+  s_e8e2b780741339::t_b53d37ed913c23 147,150-151
+  s_e8e2b780741339::t_a5793a3bf17ac3 50-61
+  s_e8e2b780741339::t_6666ccb47083d9 168-169
+  s_e8e2b780741339::t_5806d127675803 64
+  s_e8e2b780741339::t_b5bdf095d35c98 9
+  s_e8e2b780741339::t_798e0d79d1041e 156-157
+  s_e8e2b780741339::t_0a2caf53de6a2c 160-162,164-166,170-172
+  s_e8e2b780741339::t_301bdbaa38d536 99
+  s_e8e2b780741339::t_c967bf40ae9d56 135-142,145-146,148-149,152
+  s_e8e2b780741339::t_7f204db56a5bd0 1-8,10-49,62-63,65-78,83-98,100-134,143-144,153-155,158-159,163,167,173-199
+  s_e8e2b780741339::t_7ae2ab01c71c98 79-82
+about/index.html
+  s_e8e2b780741339::t_e8360b07956c86 14-16
+  s_e8e2b780741339::t_dd9a0e8f5f3baf 1-13,17-28,30-33
+  s_e8e2b780741339::t_008e24240bf5bd 29
+assets/js/site.js
+  s_e8e2b780741339::t_89b25c5f4379e0 17
+  s_e8e2b780741339::t_22c1a974eb369c 50-60,63-64,66-70,73
+  s_e8e2b780741339::t_1a7a5a5610cb26 1-16,18-25,28-49,61-62,65,71-72,74-78
+  s_e8e2b780741339::t_ff817144c6c307 26-27
+assets/js/data.js
+  s_e8e2b780741339::t_8f33f45285589a 2-3,19
+  s_e8e2b780741339::t_22c4154d46166b 1,4-5,22-56
+  s_e8e2b780741339::t_f297270fccdd1c 6-18,20-21
+index.html
+  s_e8e2b780741339::t_dd9a0e8f5f3baf 1,3-21,23-26
+  s_e8e2b780741339::t_c5cc2640dab0d4 22
+projects/index.html
+  s_e8e2b780741339::t_44927587b60ba2 18,27
+  s_e8e2b780741339::t_dd9a0e8f5f3baf 1-12,14-17,19-26,28,36-40
+  s_e8e2b780741339::t_e859c7e1830fa5 13
+  s_e8e2b780741339::t_73a08484731dc5 29-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.6",
+  "base_commit_sha": "735a681c6647e49151444a3f873fe8c9be46cf5a",
+  "prompts": {},
+  "sessions": {
+    "s_e8e2b780741339": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "caa4b135-a482-4aeb-b219-eba54f6ddd4c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "carolynruan <98036925+carolynruan@users.noreply.github.com>"
+    }
+  }
+}
