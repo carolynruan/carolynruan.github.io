@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects · Carolyn Ruan</title>
+  <link rel="icon" href="../favicon.ico">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body data-root="../">
+  <main>
+    <h1 class="page-title">Projects</h1>
+    <div class="project-list" id="projects"></div>
+  </main>
+  <footer>&copy; Carolyn Ruan</footer>
+
+  <script type="module">
+    import { renderNav, root } from "../assets/js/site.js";
+    import { projects } from "../assets/js/data.js";
+
+    renderNav();
+    const title = (p) =>
+      p.link ? `<a href="${p.link}" target="_blank" rel="noopener">${p.title}</a>` : p.title;
+
+    document.getElementById("projects").innerHTML = projects
+      .map((p) => `
+        <article class="project">
+          <div class="thumb">
+            <img src="${root}${p.gif || p.still}" alt="${p.title}" loading="lazy">
+          </div>
+          <div class="text">
+            <h2>${title(p)}</h2>
+            <p>${p.blurb}</p>
+            ${p.stack ? `<p class="stack">${p.stack}</p>` : ""}
+          </div>
+        </article>`)
+      .join("");
+  </script>
+</body>
+</html>

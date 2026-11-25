@@ -1,17 +1,20 @@
-<<<<<<< HEAD
-!
-photography/images/jpgs/*
-photography/images/jpgs
-=======
+# Full-size JPG originals (site uses the WebP versions)
+photography/images/jpgs/
+
+# Old Jekyll build files
 _site
-.DS_Store
 .jekyll
 .jekyll-metadata
 .bundle
 .sass-cache
 Gemfile
 Gemfile.lock
+
+# OS / tooling
+.DS_Store
 node_modules
 package.json
 favicon.ico
->>>>>>> master
+
+# Local Claude Code preview config
+.claude/
